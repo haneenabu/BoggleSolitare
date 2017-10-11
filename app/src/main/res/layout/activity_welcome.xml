@@ -12,9 +12,9 @@ android:layout_height="match_parent" >
     android:layout_height="wrap_content"
     android:id="@+id/headerTextView"
     android:textSize="30sp"
+    android:layout_marginTop="48dp"
     android:layout_alignParentTop="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="19dp" />
+    android:layout_centerHorizontal="true" />
 
 <GridView
 
@@ -34,18 +34,17 @@ android:layout_height="match_parent" >
 
     <EditText
         android:layout_width="wrap_content"
+        android:id="@+id/check_word"
         android:layout_height="wrap_content"
         android:hint="Enter Word Here"
-        android:layout_above="@+id/baseGridView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="18dp"
-        android:layout_marginStart="18dp" />
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:text="@string/submit"/>
+        android:text="@string/submit"
+        android:id="@+id/button" />
 </RelativeLayout>
