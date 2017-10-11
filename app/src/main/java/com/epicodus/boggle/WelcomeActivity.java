@@ -9,6 +9,8 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -22,6 +24,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
      @Bind(R.id.check_word) EditText mCheckWord;
      @Bind(R.id.button) Button mButton;
 
+     ArrayList<String> finalLetters = new ArrayList<String>();
 
 
     String [] consonants = new String[]{
@@ -40,7 +43,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         ButterKnife.bind(this);
         mButton.setOnClickListener(this);
 
-        ArrayList<String> finalLetters = new ArrayList<String>();
+
 
 
         mBaseGridView.setAdapter(new letterAdapter(this, finalLetters));
@@ -58,17 +61,40 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     }
     @Override
     public void onClick(View v){
-        String WordChecker = mCheckWord.getText().toString();
+        String inputWord = mCheckWord.getText().toString();
+        int userPoints =0;
+        ArrayList finalLettersCopy = finalLetters;
+
         if(v == mButton){
-            if(WordChecker.length() > 3){
-                Toast toast = Toast.makeText(this, "This is a word", Toast.LENGTH_LONG );
-                toast.show();
-                mCheckWord.setText("");
-            } else {
+
+            if(inputWord.length() > 3){
+                for(int t=0; t < inputWord.length(); t++){
+                    if (finalLettersCopy.contains(String.valueOf(inputWord.charAt(t)))) {
+                        userPoints ++;
+                        finalLettersCopy.remove(String.valueOf(inputWord.charAt(t)));
+                    } else{
+                        break;
+
+                    }
+                }
+
+                if (userPoints == inputWord.length()){
+                    Toast winToast = Toast.makeText(this, "This is a word", Toast.LENGTH_LONG );
+                    winToast.show();
+                } else{
+                    Toast noMatch = Toast.makeText(this, "Not all the letters in the word match", Toast.LENGTH_LONG );
+                    noMatch.show();
+                }
+
+            }
+            else{
                 Toast toast1 = Toast.makeText(this, "That is not a word", Toast.LENGTH_LONG);
                 toast1.show();
+            }
+
+                mCheckWord.setText("");
             }
         }
     }
 
-}
+
