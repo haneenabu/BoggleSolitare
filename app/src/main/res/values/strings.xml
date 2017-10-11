@@ -3,4 +3,5 @@
     <string name="welcome">Welcome to Boggle</string>
     <string name="start">Start Game!</string>
     <string name="submit">Submit Word</string>
+    <string name="newGame">Start Over!</string>
 </resources>

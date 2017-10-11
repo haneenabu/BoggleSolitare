@@ -23,7 +23,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
      @Bind(R.id.baseGridView)GridView mBaseGridView;
      @Bind(R.id.check_word) EditText mCheckWord;
      @Bind(R.id.button) Button mButton;
-
+     @Bind(R.id.start_over) Button mStartOver;
      ArrayList<String> finalLetters = new ArrayList<String>();
 
 
@@ -95,6 +95,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 mCheckWord.setText("");
             }
         }
+
     }
 
 
