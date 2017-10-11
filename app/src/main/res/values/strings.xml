@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Boggle</string>
+    <string name="welcome">Welcome to Boggle</string>
+    <string name="start">Start Game!</string>
 </resources>

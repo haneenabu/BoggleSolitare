@@ -6,8 +6,16 @@ import android.view.View;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
     GridView gridView;
+    TextView textView;
+    @Bind(R.id.welcome_page) TextView mWelcomePage;
+    @Bind(R.id.baseGridView) GridView mBaseGridView;
     String [] letters = new String[]{
             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
     };
@@ -16,15 +24,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        gridView = (GridView) findViewById(R.id.baseGridView);
+        ButterKnife.bind(this);
 
-        gridView.setAdapter(new letterAdapter(this, letters));
+
+        mBaseGridView.setAdapter(new letterAdapter(this, letters));
+
 
     }
 
-//    @Override
-//    public void onClick(View v){
-//        String [] chars = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-//        tx
-//    }
+
 }
