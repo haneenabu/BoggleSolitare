@@ -6,20 +6,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+
 
 public class letterAdapter extends BaseAdapter {
     private Context mContext;
-    private String[] mLetters;
+//    private String[] mLetters;
+    private ArrayList<String> mFinalLetters;
 
-    public letterAdapter(Context context, String[] letters){
+
+
+
+    public letterAdapter(Context context, ArrayList<String> finalLetters){
         this.mContext = context;
-        this.mLetters = letters;
+
+        this.mFinalLetters = finalLetters;
     }
 
     @Override
     public int getCount(){
         return 8;
+
     }
     @Override
     public Object getItem(int position){
@@ -46,7 +58,7 @@ public class letterAdapter extends BaseAdapter {
                     .findViewById(R.id.grid_item_letter);
 
             // set values into views
-            letterView.setText(mLetters[position]);
+            letterView.setText(mFinalLetters.get(position));
 
         } else {
             gridView = (View) convertView;

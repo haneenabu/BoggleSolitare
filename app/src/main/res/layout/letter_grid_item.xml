@@ -9,8 +9,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/grid_item_label"
         android:layout_weight="0.8"
-        android:gravity="center_horizontal"
-        android:text="Letter" />
+        android:gravity="center_horizontal" />
 
     <TextView
         android:layout_width="60sp"

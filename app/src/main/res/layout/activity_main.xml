@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    tools:context="com.epicodus.boggle.WelcomeActivity">
 
     <TextView
-        android:text="Learn the Alphabet"
+        android:id="@+id/welcome_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/headerTextView"
+        android:text="@string/welcome"
+        android:layout_marginTop="91dp"
+        android:textSize="20sp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="30sp" />
+        android:layout_centerHorizontal="true" />
 
-    <GridView
-
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnWidth="50sp"
-        android:numColumns="auto_fit"
-        android:stretchMode="spacingWidthUniform"
-        android:id="@+id/baseGridView"
-        android:padding="0dp"
-        android:gravity="left"
-        android:scrollingCache="false"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="40sp" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/start"
+        android:textAllCaps="false"/>
 </RelativeLayout>
