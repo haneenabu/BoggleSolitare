@@ -28,11 +28,11 @@ public class WordList extends AppCompatActivity {
         Intent intent = getIntent();
         ArrayList<String> wordList = intent.getStringArrayListExtra("wordList");
 
-        System.out.println(wordList);
+        System.out.println("inside WordList.java"+wordList);
 
-        WorldListArrayAdapter adapter = new WordListArrayAdapter(this,
+        WordListArrayAdapter adapter = new WordListArrayAdapter(this,
                 android.R.layout.simple_list_item_1,
                 wordList);
-
+        mWordListView.setAdapter(adapter);
     }
 }
