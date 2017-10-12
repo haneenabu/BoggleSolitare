@@ -26,6 +26,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
      @Bind(R.id.button) Button mButton;
      @Bind(R.id.start_over) Button mStartOver;
      ArrayList<String> finalLetters = new ArrayList<String>();
+     ArrayList <String> winWordBank = new ArrayList<>();
+     ArrayList <String> finalLettersCopy = finalLetters;
 
 
     String [] consonants = new String[]{
@@ -61,15 +63,23 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v){
         String inputWord = mCheckWord.getText().toString();
         int userPoints =0;
-        ArrayList finalLettersCopy = finalLetters;
+
+
 
         if(v == mButton){
 
             if(inputWord.length() > 3){
                 for(int t=0; t < inputWord.length(); t++){
-                    if (finalLettersCopy.contains(String.valueOf(inputWord.charAt(t)))) {
+                    if (finalLetters.contains(String.valueOf(inputWord.charAt(t)))) {
                         userPoints ++;
-                        finalLettersCopy.remove(String.valueOf(inputWord.charAt(t)));
+                        if (finalLettersCopy.size() > 3){
+                            finalLettersCopy.remove(String.valueOf(inputWord.charAt(t)));
+                        }else{
+                            Intent wordListIntent = new Intent(WelcomeActivity.this, WordList.class);
+                            wordListIntent.putExtra("wordList", winWordBank);
+                            startActivity(wordListIntent);
+                        }
+
                     } else{
                         break;
 
@@ -77,6 +87,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 }
 
                 if (userPoints == inputWord.length()){
+                    winWordBank.add(inputWord);
+                    System.out.println(winWordBank);
                     Toast winToast = Toast.makeText(this, "This is a word", Toast.LENGTH_LONG );
                     winToast.show();
                 } else{
