@@ -3,11 +3,16 @@ package com.epicodus.boggle;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
+
+import static com.epicodus.boggle.R.mipmap.boggle;
 
 public class WordList extends AppCompatActivity {
 
@@ -21,7 +26,13 @@ public class WordList extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String wordList = intent.getStringExtra("wordList");
-        mWordText.setText(wordList);
+        ArrayList<String> wordList = intent.getStringArrayListExtra("wordList");
+
+        System.out.println(wordList);
+
+        WorldListArrayAdapter adapter = new WordListArrayAdapter(this,
+                android.R.layout.simple_list_item_1,
+                wordList);
+
     }
 }

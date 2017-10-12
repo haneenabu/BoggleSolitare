@@ -76,7 +76,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                             finalLettersCopy.remove(String.valueOf(inputWord.charAt(t)));
                         }else{
                             Intent wordListIntent = new Intent(WelcomeActivity.this, WordList.class);
-                            wordListIntent.putExtra("wordList", winWordBank);
+//                            for(word: winWordBank){
+//
+//                            }
+                            wordListIntent.putStringArrayListExtra("wordList", winWordBank);
                             startActivity(wordListIntent);
                         }
 
