@@ -1,5 +1,6 @@
 package com.epicodus.boggle;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,13 +43,9 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
         mButton.setOnClickListener(this);
-
-
-
+        mStartOver.setOnClickListener(this);
 
         mBaseGridView.setAdapter(new letterAdapter(this, finalLetters));
-
-
 
         for (int i = 0; i < 2; i++) {
             int randomIndex = new Random().nextInt(vowels.length);
@@ -58,6 +55,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
             int randomConsonant = new Random().nextInt(consonants.length);
             finalLetters.add(consonants[randomConsonant]);
         }
+
     }
     @Override
     public void onClick(View v){
@@ -92,10 +90,13 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 toast1.show();
             }
 
-                mCheckWord.setText("");
-            }
+            mCheckWord.setText("");
+        } else if (v == mStartOver){
+            Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+            startActivity(intent);
         }
-
     }
+
+}
 
 
