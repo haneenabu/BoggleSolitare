@@ -70,11 +70,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
             if(inputWord.length() > 3){
                 for(int t=0; t < inputWord.length(); t++){
+
                     if (finalLetters.contains(String.valueOf(inputWord.charAt(t)))) {
                         userPoints ++;
-                        if (finalLettersCopy.size() > 3){
                             finalLettersCopy.remove(String.valueOf(inputWord.charAt(t)));
-                        }
                     } else{
                         break;
 
@@ -85,9 +84,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                     winWordBank.add(inputWord);
                     Toast winToast = Toast.makeText(this, "This is a word", Toast.LENGTH_LONG );
                     winToast.show();
-                    if (winWordBank.size() < 4){
+                    System.out.println("finalLettersCopy: " + finalLettersCopy);
+                    if (finalLettersCopy.size() < 4){
                         Intent wordListIntent = new Intent(WelcomeActivity.this, WordList.class);
-                        System.out.println(winWordBank);
+                        System.out.println(" test "+winWordBank.size());
                         wordListIntent.putStringArrayListExtra("wordList", winWordBank);
                         startActivity(wordListIntent);
                     }

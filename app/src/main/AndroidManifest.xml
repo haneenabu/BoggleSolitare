@@ -22,7 +22,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.boggle.MainActivity"></meta-data>
         </activity>
-        <activity android:name=".WordList"></activity>
+        <activity android:name=".WordList"><meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.epicodus.boggle.MainActivity"></meta-data></activity>
     </application>
 
 </manifest>
