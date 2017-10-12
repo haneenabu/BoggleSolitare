@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
 android:id="@+id/activity_main"
 android:layout_width="match_parent"
-android:layout_height="match_parent" >
+android:layout_height="match_parent"
+android:background="#B2DFDB">
 
 <TextView
     android:text="@string/app_name"
@@ -12,6 +12,7 @@ android:layout_height="match_parent" >
     android:layout_height="wrap_content"
     android:id="@+id/headerTextView"
     android:textSize="30sp"
+    android:textColor="@color/black"
     android:layout_marginTop="48dp"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true" />
@@ -30,16 +31,19 @@ android:layout_height="match_parent" >
     android:layout_marginTop="62dp"
     android:layout_below="@+id/headerTextView"
     android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" />
+    android:layout_alignParentStart="true"
+    />
 
     <EditText
         android:layout_width="wrap_content"
         android:id="@+id/check_word"
         android:layout_height="wrap_content"
         android:hint="Enter Word Here"
+        android:textColorHint="@color/black"
         android:layout_above="@+id/button"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp" />
+        android:layout_marginBottom="14dp"
+        android:textColor="@color/black"/>
 
     <Button
         android:layout_width="match_parent"
@@ -48,12 +52,19 @@ android:layout_height="match_parent" >
         android:id="@+id/button"
         android:layout_above="@+id/start_over"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimary"
+        android:textColor="#FFFFFF"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/newGame"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/start_over" />
+        android:id="@+id/start_over"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#FFFFFF"/>
 </RelativeLayout>
